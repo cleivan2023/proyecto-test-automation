@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-test-automation",
+  "version": "1.0.0",
+  "description": "Proyecto, realizado con  2 conjuntos de pruebas de acuerdo a los requerimientos y se genera el reporte de resultados de cada una de ellas, incluyendo cobertura de requisitos y riesgos.  Además Incluye un resultado esperado es un reporte claro.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleivan2023/proyecto-test-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cleivan2023/proyecto-test-automation/issues"
+  },
+  "homepage": "https://github.com/cleivan2023/proyecto-test-automation#readme",
+  "devDependencies": {
+    "cypress": "^14.5.2"
+  }
+}
