@@ -1,15 +1,16 @@
+//tiene un ERROR EN LA API: error post 500
+
 const baseUrl = "https://test-adl.leonardojose.dev/login";
-//const apiURL = "https://api-tester-adl.leonardojose.dev/";
+const apiURL = "https://api-tester-adl.leonardojose.dev/";
 
-//solo como prueba 
 
-describe("Login de usuario con fixture", () => {
+describe("Registar nuevo producto", () => {
 
   beforeEach(() => {
     cy.visit(baseUrl);
   });
 
-  it("Login exitoso con usuario existente", function () {
+  it("Registrar un nuevo producto con nombre: Iphone 16 ", function () {
     cy.fixture('users').then((data) => {
       const usuario = data.usuarioExistente;
 
@@ -19,19 +20,9 @@ describe("Login de usuario con fixture", () => {
 
       cy.url().should('include', '/dashboard');
       cy.contains('Bienvenido').should('exist');
-    });
-  });
+   
 
-  //tiene un ERROR EN LA API
-  it("Registrar un nuevo producto: iPhone 16", function () {
-  cy.fixture('users').then((data) => {
-    const usuario = data.usuarioExistente;
-
-    // Login
-    cy.get('#email').type(usuario.email);
-    cy.get('#password').type(usuario.password);
-    cy.get(':nth-child(4) > .w-full').click();
-
+    //dashboard
     cy.url().should('include', '/dashboard');
 
     // Interceptar POST
@@ -41,27 +32,25 @@ describe("Login de usuario con fixture", () => {
     cy.get(':nth-child(2) > :nth-child(1) > .cursor-pointer').click();
     cy.get('.pl-8 > :nth-child(3) > .flex > span').click();
 
-    // Botón crear artículo
+     // Botón crear artículo
     cy.get('.inline-flex').click();
 
     // Llenar formulario
       cy.get('#sku').type('iPhone 16');
-      cy.get('#name').type('Último modelo Apple 2025');
+      cy.get('#name').type('oki');
       cy.get('#stock_quantity').type('25');
-      cy.get('#cost_price').type('829000');
-      cy.get('#sale_price').type('1000000');
+      cy.get('#cost_price').type('700000');
+      cy.get('#sale_price').type('800000');
       cy.get('#unit').select('Unidad');
 
-    // Enviar
+      // Enviar
     //cy.get('.ml-3').click();
     cy.get('button[type="submit"].ml-3').click();
 
+    // CONSULTA: en la pagina para crear un nuevo articulo, no deja guardar cambios, 
+    // por lo tanto la prueba falla y se debe de reportar 
+    //tiene un ERROR EN LA API
 
- 
-    });
+     });
   });
 });
-
-
-
-

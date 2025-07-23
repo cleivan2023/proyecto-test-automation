@@ -4,8 +4,8 @@
         "email": "testeradl@test.com",
         "password":"Tester@2025"
     },
-    "nuevoUsuario": {
-        "email": "newtester@test.com",
+    "usuarioNoRegistrado": {
+        "email": "userxxx@test.com",
         "password":"password123"
     }
 }
