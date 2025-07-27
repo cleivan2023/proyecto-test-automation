@@ -10,6 +10,7 @@ module.exports = defineConfig({
     env: {
       Email: "testeradl@test.com",
       Clave: "Tester@2025",
+      Incorrecto: "userxxx@test.com"
 
     },
 

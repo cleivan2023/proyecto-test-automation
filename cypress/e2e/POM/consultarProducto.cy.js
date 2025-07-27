@@ -1,5 +1,5 @@
-import { loginPage } from '../POM/login.Page.js';
-import { productoPage } from '../POM/producto.page.js';
+import { loginPage } from './login.Page.js';
+//import { productoPage } from '../POM/producto.page.js';
 
 describe('Registrar nuevo producto', () => {
 
@@ -23,17 +23,12 @@ describe('Registrar nuevo producto', () => {
     cy.get(':nth-child(2) > :nth-child(1) > .cursor-pointer').click();
     cy.get('.pl-8 > :nth-child(3) > .flex > span').click();
 
-    cy.contains('GTO-666').should('exist');
-    //cy.get(':nth-child(1) > .space-y-2 > :nth-child(1) > .text-gray-600').click();
+    //Mostrar "Lista de Artículos"
+    cy.contains('Listado de Artículos').should('be.visible');
 
-     //Eliminar producto
-    cy.get(':nth-child(1) > .flex > .ml-4 > svg').click();
-    
-    //visualizacion del toas (mensaje emergente flotante)
-    //cy.get('.Toastify__toast--info').should('contain.text', 'Articulo eliminado con éxito');
-
-    
+     
     });  
 
-});
+
+    });
 

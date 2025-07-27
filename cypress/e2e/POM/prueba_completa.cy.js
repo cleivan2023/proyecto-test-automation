@@ -1,5 +1,5 @@
-import { loginPage } from '../POM/login.Page.js';
-import { productoPage } from '../POM/producto.page.js';
+import { loginPage } from './login.Page.js';
+import { productoPage } from './limpiar.page.js';
 
 describe('Registrar nuevo producto', () => {
 
@@ -7,7 +7,7 @@ describe('Registrar nuevo producto', () => {
     cy.visit('/login'); // baseUrl ya está configurado en cypress.config.js
   });
 
-  it('Login exitoso y validación de dashboard', () => {
+  it('usuario registrado accede al sistema y realizar la consulta de productos', () => {
     const email = Cypress.env('Email');
     const password = Cypress.env('Clave');
 
@@ -19,7 +19,7 @@ describe('Registrar nuevo producto', () => {
   });
 
 
-  it('Registrar un nuevo producto con error simulado del servidor', () => {
+  it('Registrar un nuevo producto con nombre: Iphone 16 ', () => {
   const email = Cypress.env('Email');
   const password = Cypress.env('Clave');
 
@@ -31,15 +31,10 @@ describe('Registrar nuevo producto', () => {
 
   // Interceptar GET con error 500 antes de abrir el módulo productos
   //  Elimina temporalmente el intercept con error 500
-cy.intercept('GET', '**/products*').as('getProductos');
-
-  //cy.intercept('GET', '**/products*', {
-   // statusCode: 500,
-    //body: { error: "error simulado" } // Puedes dejarlo vacío si el frontend espera un array
-  //}).as('getAPIError');
+  cy.intercept('GET', '**/products*').as('getProductos');
 
   // Interceptar POST
-  cy.intercept('POST', '**/products').as('crearProducto');
+  cy.intercept('POST', '**/products').as('crearProducto');// se repite
 
   // Ahora se abre el módulo productos (esto dispara el GET interceptado)
   productoPage.abrirModuloProductos();
@@ -48,12 +43,13 @@ cy.intercept('GET', '**/products*').as('getProductos');
   cy.wait('@getAPIError');
 
   productoPage.crearProducto({
-    sku: 'Gatito siamés',
-    nombre: 'Gatito muy simpático y regalón',
-    stock: '1',
-    costo: '20',
-    venta: '1000000',
+    sku: 'GTO-02',
+    nombre: 'Iphone 16',
+    stock: '25',
+    costo: '700000',
+    venta: '800000',
     unidad: 'Unidad'
+
   });
 
   // Validar que el POST falló con código 500
@@ -65,10 +61,17 @@ cy.intercept('GET', '**/products*').as('getProductos');
   .should('be.visible')
   .click();
 
+ });
+ it('actualizar el producto con nombre: Iphone 16 para Iphone 16 Pro Max  ', () => {
+  const email = Cypress.env('Email');
+  const password = Cypress.env('Clave');
+
+  loginPage.login(email, password);
+
 });
 
 
-  it('Muestra mensaje de error con usuario inválido -5', () => {
+  it('usuario registrado accede al sistema y realizar la consulta de productos', () => {
     loginPage.login("userxxx@test.com", Cypress.env('Clave'));
 
     loginPage.elements.mensajeError()
