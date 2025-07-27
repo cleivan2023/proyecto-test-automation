@@ -1,6 +1,6 @@
 [   
     { "id": 6,   
-        "Código (SKU)": "SKU-666",
+        "Código": "GTO-666",
         "Descripción": " Iphone 16",
         "Stock Actual": 30,
         "Costo": 709990,
@@ -11,7 +11,7 @@
     },
     {
       "id": 6.2,
-        "Código (SKU)": "SKU-666-6",
+        "Código": "GTO-666-6",
         "Descripción": "Iphone 16 Pro Max",
         "Stock Actual": 20,
         "Costo": 809990,
@@ -20,8 +20,8 @@
 
     },
     {
-         "id": "supervisor",
-        "Código (SKU)": "Gatito siamés",
+      "id": "supervisor",
+        "Código": "Gatito siamés",
         "Descripción": "Gatito muy simpático y regalón",
         "Stock Actual": 1,
         "Costo": 20,

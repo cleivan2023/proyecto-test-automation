@@ -8,7 +8,7 @@ describe("Actualizar el producto", () => {
     cy.visit(baseUrl);
   });
 
-  it("Login exitoso con usuario existente", function () {
+  it("actualizar el producto con nombre: Iphone 16 para Iphone 16 Pro Max ", function () {
     cy.fixture('users').then((data) => {
       const usuario = data.usuarioExistente;
 

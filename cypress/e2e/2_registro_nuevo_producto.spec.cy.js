@@ -36,8 +36,8 @@ describe("Registar nuevo producto", () => {
     cy.get('.inline-flex').click();
 
     // Llenar formulario
-      cy.get('#sku').type('iPhone 16');
-      cy.get('#name').type('oki');
+      cy.get('#sku').type('GTO-02');
+      cy.get('#name').type('Iphone 16');
       cy.get('#stock_quantity').type('25');
       cy.get('#cost_price').type('700000');
       cy.get('#sale_price').type('800000');

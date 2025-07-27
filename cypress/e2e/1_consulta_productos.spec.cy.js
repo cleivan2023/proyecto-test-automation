@@ -34,7 +34,7 @@ describe("Consulta de productos", () => {
     cy.contains('Listado de Artículos').should('be.visible');
 
     
-    //CONSULTA: sera necesario que por cada prueba se cierre seccion?
+    
 
     });
   });
