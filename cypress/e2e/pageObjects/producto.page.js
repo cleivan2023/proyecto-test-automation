@@ -16,6 +16,18 @@ class ProductoPage {
   //cy.get('form').should('be.visible');
 }
 
+//abre lisa de articulos y busca el articulo que necesito
+ buscarModificarProducto() {
+   cy.get(':nth-child(2) > :nth-child(1) > .cursor-pointer').click();
+   cy.get('.pl-8 > :nth-child(3) > .flex > span').click(); //aca se mete a Articulos
+
+
+    // Busca el producto por su nombre en la tabla y hace clic en Editar
+    //cy.contains('td', GTO-666).parent().within(() => {
+      //cy.contains('Editar').click();
+    //});
+  }
+
 
   crearProducto({ sku, nombre, stock, costo, venta, unidad }) {
     
@@ -35,20 +47,9 @@ class ProductoPage {
     .click();
 }
 
-/* clickEditarProductoPorSKU(sku) {
-  cy.contains(sku)
-    .parentsUntil('.space-y-2')
-    .last()
-    .find('svg')
-    .eq(0)
-    .click({ force: true });
-
-  // Validar que el formulario se abra
-  cy.get('form').should('be.visible');
-  cy.get('#sku').should('be.visible');
-} */
-
 }
+
+
 
 export const productoPage = new ProductoPage();
 

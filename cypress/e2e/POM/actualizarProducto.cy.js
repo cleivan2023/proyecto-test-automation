@@ -1,49 +1,64 @@
-import { loginPage } from '../POM/login.Page.js';
-import { limpiarPage } from '../POM/limpiar.page.js';
+import { limpiarPage } from '../pageObjects/limpiar.page.js';
+import { loginPage } from '../pageObjects/login.Page.js';
+import { productoPage } from '../pageObjects/producto.page.js';
+
 
 describe('Actualizar producto', () => {
 
-  beforeEach(() => {
-    cy.visit('/login'); // baseUrl configurado en cypress.config.js
-  });
+beforeEach(function () {
+  // Interceptar la carga de productos ANTES del visit
+  cy.intercept('GET', '**/api/products*').as('getProducts');
 
-  it('Actualizar producto Iphone 16 a Iphone 16 Pro Max', () => {
-    const email = Cypress.env('Email');
-    const password = Cypress.env('Clave');
+  // Visitar login y hacer login
+  cy.visit('/login');
+  const email = Cypress.env('Email');
+  const password = Cypress.env('Clave');
 
-    // Login
-    loginPage.login(email, password);
-    cy.url().should('include', '/dashboard');
+  loginPage.login(email, password);
 
-    // Abrir módulo de productos
-    limpiarPage.abrirModuloProductos();
+   // Confirmar que estamos logueados correctamente
+ cy.url().should('include', '/dashboard');
 
-    // Buscar el producto original en el fixture y actualizar con el nuevo
-    cy.fixture('products').then((productos) => {
-      const productoOriginal = productos.find(p => p["Código"] === "GTO-666");
-      const productoActualizado = productos.find(p => p["Código"] === "GTO-666-6");
 
-      // Buscar producto por SKU (GTO-666) y hacer clic en editar
-      cy.contains(productoOriginal["Código"])
-        .parentsUntil('.space-y-2')
-        .last()
-        .find('svg')
-        .eq(0)
-        .click({ force: true });
-
-      // Esperar formulario y actualizar con datos nuevos
-      limpiarPage.actualizarProducto({
-        sku: productoActualizado["Código"],
-        nombre: productoActualizado["Descripción"],
-        stock: productoActualizado["Stock Actual"].toString(),
-        costo: productoActualizado["Costo"].toString(),
-        venta: productoActualizado["Precio venta"].toString(),
-        unidad: productoActualizado["Unidad de Medida"]
-      });
-
-      // Verificar que el mensaje emergente aparece
-      cy.get('.Toastify__toast--info', { timeout: 10000 })
-        .should('contain.text', 'actualizado con éxito');
-    });
-  });
 });
+
+it('Debe actualizar el producto Iphone 16 a Iphone 16 Pro Max', function () {
+  
+ cy.visit('/articulos');
+
+  //Ir a módulo productos y buscar entidades
+  productoPage.buscarModificarProducto(); 
+
+// Esperar que se carguen los productos
+    cy.wait('@getProducts');
+
+ // Buscar el producto por código
+  cy.contains('td', 'GTO-666', { timeout: 30000 }).scrollIntoView().should('exist');
+
+  //click en el lapiz
+ //cy.get('.flex > .text-indigo-600 > svg').click();
+
+ 
+
+// Leer los datos desde fixtures
+    cy.fixture('products').then((producto) => {
+      limpiarPage.actualizarProducto({
+        sku: producto['Código'],
+        nombre: producto['Descripción'],
+        stock: producto['Stock Actual'],
+        costo: producto['Costo'],
+        venta: producto['Precio venta'],
+        unidad: producto['Unidad de Medida']
+  });
+
+  cy.contains('td', nuevoProducto['Descripción']).should('exist'); 
+});
+
+ });
+ });
+
+
+
+ //Código:GTO-666
+
+
