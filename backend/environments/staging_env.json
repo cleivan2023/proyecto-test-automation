@@ -1,0 +1,27 @@
+{
+	"id": "f8aa1ebc-6069-49e9-af72-5f37d5ef2b99",
+	"name": "testing",
+	"values": [
+		{
+			"key": "baseUrlApi",
+			"value": "https://api-tester-adl.leonardojose.dev",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "1871|Bwxy3Fc1Lhdva66BnSmTY5uctC0u3SEC07IIcxIcbc1cb7d4",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "mi_id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-07-28T22:19:09.494Z",
+	"_postman_exported_using": "Postman/11.54.0"
+}

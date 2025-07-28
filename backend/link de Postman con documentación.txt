@@ -1,0 +1,12 @@
+link de Postman con documentación de consultas 
+
+https://documenter.getpostman.com/view/26529519/2sB3B7PZcu
+
+repo de Postman + Gitactions 
+
+https://github.com/meblok/gitn
+URL: https://github.com/meblok/gitn/actions/runs/16581640514/artifacts/3633975412
+
+
+link de repositorio de pruebas android ecommerce con maestro
+https://github.com/meblok/maestroandroid
