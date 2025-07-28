@@ -38,16 +38,17 @@ it('Debe actualizar el producto Iphone 16 a Iphone 16 Pro Max', function () {
   //click en el lapiz
  //cy.get('.flex > .text-indigo-600 > svg').click();
 
+ //ME FALTO COMPLETAR ESTA PARTE, Disculpe Profe, no logre este objetivo.
  
 
 // Leer los datos desde fixtures
     cy.fixture('products').then((producto) => {
       limpiarPage.actualizarProducto({
-        sku: producto['Código'],
-        nombre: producto['Descripción'],
-        stock: producto['Stock Actual'],
-        costo: producto['Costo'],
-        venta: producto['Precio venta'],
+        sku: producto['GTO-666-6'],
+        nombre: producto['Iphone 16 Pro Max'],
+        stock: producto[20],
+        costo: producto[809990],
+        venta: producto[1000000],
         unidad: producto['Unidad de Medida']
   });
 

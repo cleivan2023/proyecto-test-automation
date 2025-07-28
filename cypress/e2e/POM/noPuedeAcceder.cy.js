@@ -1,4 +1,4 @@
-import { loginPage } from './login.Page.js';
+import { loginPage } from '../pageObjects/login.Page.js';
 //import { productoPage } from '../POM/producto.page.js';
 
 describe('No permitir acceso a usuarios no registrados', () => {

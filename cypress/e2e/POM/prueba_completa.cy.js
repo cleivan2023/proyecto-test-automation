@@ -1,5 +1,5 @@
-import { loginPage } from './login.Page.js';
-import { productoPage } from './limpiar.page.js';
+import { loginPage } from '../pageObjects/login.Page.js';
+import { limpiarPage } from '../pageObjects/limpiar.page.js';
 
 describe('Registrar nuevo producto', () => {
 

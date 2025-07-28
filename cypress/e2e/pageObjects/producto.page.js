@@ -22,10 +22,6 @@ class ProductoPage {
    cy.get('.pl-8 > :nth-child(3) > .flex > span').click(); //aca se mete a Articulos
 
 
-    // Busca el producto por su nombre en la tabla y hace clic en Editar
-    //cy.contains('td', GTO-666).parent().within(() => {
-      //cy.contains('Editar').click();
-    //});
   }
 
 
