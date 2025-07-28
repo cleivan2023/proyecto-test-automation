@@ -8,8 +8,8 @@ class LimpiarPage {
 
   actualizarProducto({ sku, nombre, stock, costo, venta, unidad }) {
     // Asegurarse que el formulario esté visible
-    // cy.get('form', { timeout: 10000 }).should('be.visible');
-    cy.get('GTO-666').should('be.visible');
+     cy.get('form', { timeout: 10000 }).should('be.visible');
+    //cy.get('GTO-666').should('be.visible');
 
 // Limpiar y escribir nuevos valores
     cy.get('#sku').clear().type(sku);
